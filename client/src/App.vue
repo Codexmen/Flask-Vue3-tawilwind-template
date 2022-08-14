@@ -1,11 +1,10 @@
 <script setup>
-import { ref } from 'vue'
-
+import { ref, onMounted } from 'vue'
+import useApi from '@/api/useApi';
 let counter = ref(0)
-
-setInterval(() => {
-  counter.value++
-}, 1000)
+const {data,
+        getInfo} = useApi();
+onMounted(() => getInfo())
 </script>
 
 <template>
@@ -16,7 +15,7 @@ setInterval(() => {
           @click="counter = 0"
           class="text-3xl font-bold leading-tight text-gray-900"
         >
-          {{ $route.meta.title }} / {{ counter }}
+          {{ data }}
         </h1>
       </div>
     </header>

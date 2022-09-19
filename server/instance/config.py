@@ -1,3 +1,4 @@
 SECRET_KEY = '<^>YOUR_SECRET_KEY^>'
-SQLALCHEMY_DATABASE_URI = 'mysql://dt_admin:dt2016@localhost/dreamteam_db'
+SQLALCHEMY_DATABASE_URI = 'mysql://finance:finance@localhost/finance'
 SQLALCHEMY_TRACK_MODIFICATIONS = False
+SESSION_COOKIE_SAMESITE = None

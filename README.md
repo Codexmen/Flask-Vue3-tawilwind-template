@@ -22,12 +22,14 @@
 
 ### How to install client
 - `cd client`
+- `nvm use v14.19.3`
 - `npm i`
 
 ### How to start client
 - `npm run dev` -- // start dev server,
 - `npm run build` -- // build for production
 - `npm run serve` -- // locally preview production build
+
 
 
 ### How to start everything - TBD
@@ -40,4 +42,8 @@ Login flow:
 - https://www.digitalocean.com/community/tutorials/how-to-add-authentication-to-your-app-with-flask-login#step-5-creating-user-models
 - https://betterprogramming.pub/a-detailed-guide-to-user-registration-login-and-logout-in-flask-e86535665c07
 
+
+Dockerization:
+https://testdriven.io/blog/dockerizing-flask-with-postgres-gunicorn-and-nginx/#nginx
+https://www.patricksoftwareblog.com/how-to-configure-nginx-for-a-flask-web-application/
 

@@ -12,7 +12,7 @@ class User(UserMixin, db.Model):
     oauth_provider = db.Column(db.String(64))
 
     def __repr__(self):
-        return '<User {}>'.format(self.first_name + ' ' + self.second_name)
+        return '<User {}>'.format(self.email)
 
     def reset_password(self, password):
         self.password_hash = generate_password_hash(password)

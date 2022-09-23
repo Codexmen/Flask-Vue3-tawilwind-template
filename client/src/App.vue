@@ -1,6 +1,7 @@
 <script setup>
 import { ref, onMounted } from 'vue'
-import useApi from '@/api/useApi';
+import useAuth from "@/api/useAuth";
+const { isAuthenticated, logout } = useAuth();
 
 </script>
 
@@ -13,6 +14,7 @@ import useApi from '@/api/useApi';
         >
           {{ $route.meta.title }}
         </h1>
+        <span v-if="isAuthenticated" @click="logout()">Logout</span>
       </div>
     </header>
     <main>

@@ -1,6 +1,6 @@
 import json
-from flask import Blueprint, jsonify, request, flash
-from flask_login import current_user, login_user
+from flask import Blueprint, jsonify, request
+from flask_login import current_user, login_user, logout_user
 from ..models import User
 bp = Blueprint('ping', __name__, url_prefix='/api/auth')
 
@@ -28,3 +28,8 @@ def login():
         username='email',
         isAuthenticated=True
     )
+
+@bp.route('/logout', methods=['POST'])
+def loguot():
+    logout_user()
+    return jsonify()

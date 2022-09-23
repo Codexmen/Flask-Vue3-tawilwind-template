@@ -20,8 +20,8 @@ def create_app(config_name):
     db.init_app(app)
     migrate = Migrate(app, db)
     login = LoginManager(app)
-    from .api import auth
-    from .models import User, UserStock, Ticker
+    from server.app.api import auth
+    from server.app.models import User, UserStock, Ticker
 
     app.register_blueprint(auth.bp)
     @login.user_loader

@@ -1,4 +1,5 @@
 <script setup>
+import Modal from "@/components/Modal.vue";
 </script>
 
 <template>
@@ -14,6 +15,9 @@
       <div class="mt-8 flex lg:mt-0 lg:flex-shrink-0">
         Dashboard content
       </div>
+    </div>
+    <div>
+      <Modal show />
     </div>
   </div>
 </template>

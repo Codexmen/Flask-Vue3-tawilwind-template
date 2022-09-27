@@ -1,4 +1,4 @@
-from app import db
+from server.app import db
 
 
 class UserStockMove(db.Model):
@@ -13,4 +13,4 @@ class UserStockMove(db.Model):
     amount = db.Column(db.Integer)
 
     def __repr__(self):
-        return '<User stocks {}>'.format(self.user_id + ' ' + self.ticker_id + ' ' + self.buy_price + ' ' + self.amount)
+        return '<User stocks {}>'.format(str(self.user_id) + ' ' + self.ticker + ' ' + str(self.buy_price) + ' ' + str(self.amount))

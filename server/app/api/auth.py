@@ -1,8 +1,8 @@
 import json
 from flask import Blueprint, jsonify, request
 from flask_login import current_user, login_user, logout_user
-from ..models import User
-bp = Blueprint('ping', __name__, url_prefix='/api/auth')
+from server.app.models import User
+bp = Blueprint('auth', __name__, url_prefix='/api/auth')
 
 
 @bp.route('/me', methods=['GET', 'POST'])
@@ -18,7 +18,7 @@ def login():
     data = json.loads(request.data)
     username = data['login']
     password = data['password']
-    user = User.User.query.filter_by(email=username).first()
+    user = User.query.filter_by(email=username).first()
     if user is None or not user.check_password(password):
         return jsonify(
             isAuthenticated=False

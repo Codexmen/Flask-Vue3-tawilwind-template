@@ -47,3 +47,8 @@ Dockerization:
 https://testdriven.io/blog/dockerizing-flask-with-postgres-gunicorn-and-nginx/#nginx
 https://www.patricksoftwareblog.com/how-to-configure-nginx-for-a-flask-web-application/
 
+Flask login:
+https://github.com/flatcoke/flask-structure
+https://www.digitalocean.com/community/tutorials/how-to-structure-a-large-flask-application-with-flask-blueprints-and-flask-sqlalchemy#prerequisites
+https://www.digitalocean.com/community/tutorials/how-to-add-authentication-to-your-app-with-flask-login#step-6-configuring-the-database
+https://www.freecodecamp.org/news/how-to-authenticate-users-in-flask/

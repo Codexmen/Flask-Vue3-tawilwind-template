@@ -16,7 +16,7 @@ class DevelopmentConfig(Config):
     DEBUG = True
     SQLALCHEMY_ECHO = True
     SECRET_KEY = '13264238467dshgjdsghfjsdjf'
-    SQLALCHEMY_DATABASE_URI = 'sqlite:///' + os.path.join(basedir, '../db/temp_db')
+    SQLALCHEMY_DATABASE_URI = 'sqlite:///' + os.path.join(basedir, '../../db/temp_db')
 
 
 class TestConfig(Config):
@@ -27,7 +27,7 @@ class TestConfig(Config):
     DEBUG = True
     SQLALCHEMY_ECHO = True
     SECRET_KEY = '13264238467dshgjdsghfjsdjf'
-    SQLALCHEMY_DATABASE_URI = 'sqlite:///' + os.path.join(basedir, '../db/test_db')
+    SQLALCHEMY_DATABASE_URI = 'sqlite:///' + os.path.join(basedir, '../../db/test.db')
 
 
 class ProductionConfig(Config):

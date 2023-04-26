@@ -8,7 +8,7 @@
 
 ### How to start project
 
-- install Python dependencies 
+- install Python dependencies `pip install -r requirements.txt` `
 - install Vue dependencies see `How to install Client` section 
 - connect DB
 - run migrations
@@ -35,6 +35,7 @@
 ### How to start everything - TBD
 
 ## What I used as tutorials
+ - https://github.com/pallets/flask/blob/main/examples/tutorial/
  - https://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-v-user-logins
  - https://testdriven.io/blog/developing-a-single-page-app-with-flask-and-vuejs/
  - 

@@ -1,8 +1,13 @@
 import json
+from sqlalchemy.exc import IntegrityError
+
 from flask import Blueprint, jsonify, request
 from flask_login import current_user, login_user, logout_user, login_required, login_manager
+from marshmallow import ValidationError
+
 from app.models.User import User
 from app import db
+from app.schemas.utils import RegisterUserPayload
 auth_bp = Blueprint('auth', __name__, url_prefix='/api/auth')
 
 
@@ -16,11 +21,16 @@ def user_info():
 
 @auth_bp.route('/register', methods=['POST'])
 def register():
-    data = json.loads(request.data)
-    user = User(email=data.email)
-    user.set_password(data.password)
-    db.session.add(user)
-    db.session.commit()
+    try:
+        user_payload = RegisterUserPayload().load(request.json)
+        user = User(email=user_payload['email'])
+        user.reset_password(user_payload['password'])
+        db.session.add(user)
+        db.session.commit()
+    except ValidationError as e:
+        return jsonify({'error': str(e)}), 400
+    except IntegrityError as e:
+        return jsonify({'error': "user exist", "code": 501}), 400
 
     return jsonify({}), 201
 
@@ -37,7 +47,7 @@ def login():
         )
     login_user(user)
     return jsonify(
-        username=user.email,
+        email=user.email,
         isAuthenticated=True
     )
 

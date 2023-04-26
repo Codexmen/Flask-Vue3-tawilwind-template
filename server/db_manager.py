@@ -3,7 +3,6 @@ from app import create_app, db
 from app.models.User import User
 app = create_app('development')
 migrate = Migrate(app, db)
-print(db)
 user = User(first_name='Yura', email='admin@admin.com')
 user.reset_password('qwe123')
 

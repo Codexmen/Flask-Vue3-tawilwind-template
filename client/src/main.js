@@ -13,12 +13,12 @@ const router = createRouter({
 
 router.beforeEach(async (to, from) => {
   console.log(isAuthenticated.value);
-  if (!isAuthenticated.value && to.name !== "Login") {
+  if (!isAuthenticated.value && to.meta.authRequired) {
     return { name: "Login" };
   }
 
   if (isAuthenticated.value && name === "Login") {
-    return { name: "Dashboard" };
+    return { name: to.name };
   }
 });
 

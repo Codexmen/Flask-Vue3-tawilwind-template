@@ -6,13 +6,13 @@ import Dashboard from "./views/Dashboard.vue";
 
 /** @type {import('vue-router').RouterOptions['routes']} */
 export const routes = [
-  { path: "/", component: Home, meta: { title: "Home" } },
+  { path: "/", name: 'Main', component: Home, meta: { title: "Home" } },
   { path: "/login", name: "Login", component: Login, meta: { title: "Login" } },
   {
     path: "/dashboard",
     name: "Dashboard",
     component: Dashboard,
-    meta: { title: "Dashboard" },
+    meta: { title: "Dashboard", authRequired: true },
   },
   {
     path: "/about",

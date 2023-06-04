@@ -1,3 +1,4 @@
+from flask_migrate import Migrate
 from flask_sqlalchemy import SQLAlchemy
 from flask_login import LoginManager
 
@@ -6,6 +7,7 @@ from .config import app_config
 
 
 db = SQLAlchemy()
+
 login_manager = LoginManager()
 
 
@@ -13,6 +15,7 @@ def create_app(config_name='development'):
     app = Flask(__name__)
     app.config.from_object(app_config[config_name])
     db.init_app(app)
+    migrate = Migrate(app, db)
 
     from .api.utils.auth import auth_bp
     app.register_blueprint(auth_bp)

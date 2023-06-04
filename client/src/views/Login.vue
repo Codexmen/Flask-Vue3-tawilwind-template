@@ -1,6 +1,8 @@
 <script setup>
  import {ref} from 'vue'
  import useAuth from "@/api/useAuth";
+ import ButtonRepo from "@/components/Button.vue";
+ import FormInput from "@/components/FormInput.vue";
 
  const {login: loginAPI, error, isLoading, data, getUserInfo} = useAuth();
  const show = ref(true);
@@ -19,22 +21,11 @@
   <form class="mt-8">
             <div class="mx-auto max-w-lg">
               <div class="py-2"> {{ data }}
-                <span class="px-1 text-sm text-gray-600">Username</span>
-                <input v-model="login" placeholder="" type="text"
-                  class="text-md block px-3 py-2 rounded-lg w-full
-                bg-white border-2 border-gray-300 placeholder-gray-600 shadow-md focus:placeholder-gray-500 focus:bg-white focus:border-gray-600 focus:outline-none">
+                <FormInput label="Username" v-model="login" placeholder="Enter your name" />
               </div>
               <div class="py-2">
-                <span class="px-1 text-sm text-gray-600">Password</span>
-                <div class="relative">
-                  <input v-model="password" placeholder="" :type="show ? 'password' : 'text'" class="text-md block px-3 py-2 rounded-lg w-full
-                bg-white border-2 border-gray-300 placeholder-gray-600 shadow-md
-                focus:placeholder-gray-500
-                focus:bg-white
-                focus:border-gray-600
-                focus:outline-none">
-                  <div class="absolute inset-y-0 right-0 pr-3 flex items-center text-sm leading-5">
-
+                <FormInput :type="show ? 'password' : 'text'" label="Password" v-model="password" class="relative">
+                  <div class="absolute inset-y-0 right-0 pr-3 flex items-end pb-2 text-sm leading-5">
                     <svg class="h-6 text-gray-700" fill="none" @click="show = !show"
                       :class="{'hidden': !show, 'block':show }" xmlns="http://www.w3.org/2000/svg"
                       viewBox="0 0 576 512">
@@ -52,18 +43,11 @@
                     </svg>
 
                   </div>
-                </div>
+
+                </FormInput>
               </div>
-              <button type="button" @click="onSubmit" class="mt-3 text-lg font-semibold
-                bg-gray-800 w-full text-white rounded-lg
-                px-6 py-3 block shadow-xl hover:text-white hover:bg-black">
-                Login
-              </button>
-              <button type="button" @click="onCheck" class="mt-3 text-lg font-semibold
-                bg-gray-800 w-full text-white rounded-lg
-                px-6 py-3 block shadow-xl hover:text-white hover:bg-black">
-                Check
-              </button>
+              <ButtonRepo size="lg" title="Login" @click="onSubmit" theme="primary" class="w-full"/>
+
             </div>
           </form>
 </template>

@@ -1,29 +1,54 @@
 <script setup>
-import ButtonRepo from '@/components/ButtonRepo.vue'
+import ButtonRepo from '@/components/Button.vue'
+import Header from "@/components/Header.vue";
+import Footer from "@/components/Footer.vue";
+import Heading from "@/components/Heading.vue";
+import Text from "@/components/Text.vue";
+import FormInput from "@/components/FormInput.vue";
 </script>
 
 <template>
+  <Header />
   <div class="bg-gray-50">
     <div
       class="mx-auto max-w-screen-xl px-4 py-12 sm:px-6 lg:flex lg:items-center lg:justify-between lg:py-16 lg:px-8"
     >
-      <h2
-        class="text-3xl font-extrabold leading-9 tracking-tight text-gray-900 sm:text-4xl sm:leading-10"
-      >
-        Ready to dive in?
-        <br />
-        <span class="text-indigo-600">Vite + Vue 3 + Tailwind CSS</span>
-      </h2>
-      <div class="mt-8 flex lg:mt-0 lg:flex-shrink-0">
-        <div class="inline-flex rounded-md shadow">
-          <router-link
-            to="/about"
-            class="inline-flex items-center justify-center rounded-md border border-transparent bg-indigo-600 px-5 py-3 text-base font-medium leading-6 text-white transition duration-150 ease-in-out hover:bg-indigo-500 focus:outline-none"
-            >Next Page</router-link
-          >
+      <div class="mt-8 lg:mt-0 lg:flex-shrink-0">
+                <div>
+        <ButtonRepo title="Primary" theme="primary" size="lg" />
+        <ButtonRepo title="Secondary" theme="secondary" size="lg"/>
+        <ButtonRepo title="Negative" theme="negative" size="lg" />
+          </div>
+        <div>
+        <ButtonRepo title="Primary" theme="primary" />
+        <ButtonRepo title="Secondary" theme="secondary" />
+        <ButtonRepo title="Negative" theme="negative" />
+          </div>
+        <div>
+        <ButtonRepo title="Primary" theme="primary" size="sm" />
+        <ButtonRepo title="Secondary" theme="secondary" size="sm" />
+        <ButtonRepo title="Negative" theme="negative" size="sm" />
+        <ButtonRepo title="Transparent" theme="transparent" size="sm" />
+          </div>
+        <div>
+          <Heading size="lg">Large heading</Heading>
+          <Heading>Medium heading</Heading>
+          <Heading size="sm">Small heading</Heading>
         </div>
-        <ButtonRepo />
+        <div>
+          <p><Text size="lg">Large heading</Text></p>
+
+          <p><Text>Medium heading</Text></p>
+          <p><Text size="sm">Small heading</Text></p>
+        </div>
+        <div>
+          <FormInput name="name" placeholder="Enter your name" />
+        </div>
+        <div>
+          <FormInput label="Email" name="name" placeholder="Enter your name" />
+        </div>
       </div>
     </div>
   </div>
+  <Footer />
 </template>
